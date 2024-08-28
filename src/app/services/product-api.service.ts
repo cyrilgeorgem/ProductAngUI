@@ -51,7 +51,13 @@ export class ProductApiService {
         throw error;
       })
     );
+  }
   
+  DeleteProduct(id: string): Observable<HttpResponse<any>>{
+    console.log("Api address: " + this.apiAddress + '/Product/DeleteProduct/' + id);
+    
+    return this.httpClient.delete<HttpResponse<any>>(this.apiAddress + '/Product/DeleteProduct/' + id, 
+      { observe: 'response' });    
   }
   
 }

@@ -21,16 +21,6 @@ export class UpdateComponent {
         let id = params['id'];
         console.log("Params" + id);
         if(id !== undefined){
-          /* this.productService.GetProductById(id).subscribe(
-            res => {
-              console.log("Get product: " + res);
-              this.product = res;
-            },
-            error => {
-              console.error('Error fetching product:', error);
-            }
-          ) */
-
           this.productService.GetProductById(id).subscribe({
             next: (res)  => {
               console.log("Get product: " + res);
