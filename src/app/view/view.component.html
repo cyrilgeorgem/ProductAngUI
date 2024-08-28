@@ -1,0 +1,40 @@
+<style>
+    .table thead tr th{
+        color: #fff;
+        background: #2980b9;
+        font-size: 17px;
+        font-weight: 700;
+        padding: 12px;
+        border-bottom: none;
+    }
+</style>
+
+<h2>Product List</h2>
+<hr>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of productList; let i=index">
+            <td>{{item.productId}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price}}</td>
+            <td>
+                <a [routerLink]="['/update', item.productId]" class="btn btn-success">Update</a>
+            </td>
+            <td>
+                <a [routerLink]="['/delete', item.productId]" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
