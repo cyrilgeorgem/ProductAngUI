@@ -1,1 +1,20 @@
-<p>update works!</p>
+<h2>Update Product</h2>
+<hr>
+
+<form #form="ngForm" (ngSubmit)="UpdateProduct(form)">
+    <div class="form-group">
+        <label>Product</label>
+        <input type="text" name="ProductName" class="form-control" [(ngModel)]="product.name" required />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" name="ProductDesc" class="form-control" [(ngModel)]="product.description" required />
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input type="text" name="ProductPrice" class="form-control" [(ngModel)]="product.price" required />
+    </div>
+    <div style="margin-top: 5px;">
+        <input type="submit" value="Update" class="btn btn-primary">
+    </div>
+</form>

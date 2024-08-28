@@ -21,6 +21,11 @@ export class ProductApiService {
     return this.httpClient.get<Product[]>(this.apiAddress + '/Product/GetAllProducts');
   }
 
+  GetProductById(id: string): Observable<Product>{
+    console.log("Api address: " + this.apiAddress);
+    return this.httpClient.get<Product>(this.apiAddress + '/Product/GetProductById/' + id);
+  }
+
   AddProduct(product: Product): Observable<HttpResponse<any>>{    
     return this.httpClient.post(this.apiAddress + '/Product/AddNewProduct', JSON.stringify(product), 
     {
@@ -33,6 +38,20 @@ export class ProductApiService {
       })
     );
 
+  }
+
+  UpdateProduct(product: Product): Observable<HttpResponse<any>>{    
+    return this.httpClient.put(this.apiAddress + '/Product/UpdateProduct', JSON.stringify(product), 
+    {
+      headers: this.headers,
+      observe:'response'
+    }).pipe(
+      catchError((error: any) => {
+        console.error('Error in AddProduct:', error);
+        throw error;
+      })
+    );
+  
   }
   
 }
