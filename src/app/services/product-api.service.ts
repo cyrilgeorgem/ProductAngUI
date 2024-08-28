@@ -20,6 +20,20 @@ export class ProductApiService {
     console.log("Api address: " + this.apiAddress);
     return this.httpClient.get<Product[]>(this.apiAddress + '/Product/GetAllProducts');
   }
+
+  AddProduct(product: Product): Observable<HttpResponse<any>>{    
+    return this.httpClient.post(this.apiAddress + '/Product/AddNewProduct', JSON.stringify(product), 
+    {
+      headers: this.headers,
+      observe:'response'
+    }).pipe(
+      catchError((error: any) => {
+        console.error('Error in AddProduct:', error);
+        throw error;
+      })
+    );
+
+  }
   
 }
 

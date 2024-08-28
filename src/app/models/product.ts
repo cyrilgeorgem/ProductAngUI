@@ -3,5 +3,5 @@ export class Product{
     name: string = "";
     description: string | undefined;
     price: number = 0;
-    catId: number | undefined;
+    categoryId: number | undefined;
 }
